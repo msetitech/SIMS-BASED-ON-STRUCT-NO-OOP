@@ -31,3 +31,16 @@ void createStudent(vector<student>& students){
     cout << "\n Student Create Successfull \n";
     cout << "------------------------------";
 }
+
+void displayStudents(vector<student>& students){
+    if(students.empty()){
+        cout << "\n No student Avalable in system";
+        return;
+    }
+
+    cout << " \n -- All student records -- \n ";
+
+    for (const auto &student : students){
+        cout << "name; " << student.name << ", Roll No; " << student.rollNo << ",Program name: " << student.program << ",Registration No: " << student.regno << endl;
+    };
+}
