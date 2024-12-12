@@ -70,3 +70,70 @@ void updateStudent(vector<Student>& students) {
         cout << "Student with roll number " << rollNo << " not found.\n";
     }
 }
+
+
+// Function to delete a student record by roll number
+void deleteStudent(vector<Student>& students) {
+    int rollNo;
+    cout << "\nEnter roll number of the student to delete: ";
+    cin >> rollNo;
+
+    auto it = students.begin();
+    bool found = false;
+    while (it != students.end()) {
+        if (it->rollNo == rollNo) {
+            found = true;
+            students.erase(it);
+            cout << "Student record deleted successfully.\n";
+            break;
+        }
+        ++it;
+    }
+
+    if (!found) {
+        cout << "Student with roll number " << rollNo << " not found.\n";
+    }
+}
+
+// Main menu function
+void showMenu() {
+    cout << "\nStudent Management System\n";
+    cout << "1. Create Student Record\n";
+    cout << "2. View All Student Records\n";
+    cout << "3. Update Student Record\n";
+    cout << "4. Delete Student Record\n";
+    cout << "5. Exit\n";
+}
+
+int main() {
+    vector<Student> students;
+    int choice;
+
+    while (true) {
+        showMenu();
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                createStudent(students);
+                break;
+            case 2:
+                displayStudents(students);
+                break;
+            case 3:
+                updateStudent(students);
+                break;
+            case 4:
+                deleteStudent(students);
+                break;
+            case 5:
+                cout << "Exiting system. Goodbye!\n";
+                return 0;
+            default:
+                cout << "Invalid choice! Please try again.\n";
+        }
+    }
+
+    return 0;
+}
