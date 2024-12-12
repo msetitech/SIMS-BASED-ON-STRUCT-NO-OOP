@@ -45,7 +45,9 @@ void displayStudents(vector<student>& students){
     };
 }
 
-void updateStudent(vector<Student>& students) {
+
+
+void updateStudent(vector<student>& students) {
     int rollNo;
     cout << "\nEnter roll number of the student to update: ";
     cin >> rollNo;
@@ -58,8 +60,8 @@ void updateStudent(vector<Student>& students) {
             cin.ignore();  // To ignore the leftover newline character
             getline(cin, student.name);
 
-            cout << "Enter new marks: ";
-            cin >> student.marks;
+            cout << "Enter new regno: ";
+            cin >> student.regno;
 
             cout << "Student record updated successfully.\n";
             break;
@@ -73,7 +75,7 @@ void updateStudent(vector<Student>& students) {
 
 
 // Function to delete a student record by roll number
-void deleteStudent(vector<Student>& students) {
+void deleteStudent(vector<student>& students) {
     int rollNo;
     cout << "\nEnter roll number of the student to delete: ";
     cin >> rollNo;
@@ -106,7 +108,7 @@ void showMenu() {
 }
 
 int main() {
-    vector<Student> students;
+    vector<student> students;
     int choice;
 
     while (true) {
