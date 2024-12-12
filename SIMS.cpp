@@ -44,3 +44,29 @@ void displayStudents(vector<student>& students){
         cout << "name; " << student.name << ", Roll No; " << student.rollNo << ",Program name: " << student.program << ",Registration No: " << student.regno << endl;
     };
 }
+
+void updateStudent(vector<Student>& students) {
+    int rollNo;
+    cout << "\nEnter roll number of the student to update: ";
+    cin >> rollNo;
+
+    bool found = false;
+    for (auto& student : students) {
+        if (student.rollNo == rollNo) {
+            found = true;
+            cout << "Enter new name: ";
+            cin.ignore();  // To ignore the leftover newline character
+            getline(cin, student.name);
+
+            cout << "Enter new marks: ";
+            cin >> student.marks;
+
+            cout << "Student record updated successfully.\n";
+            break;
+        }
+    }
+
+    if (!found) {
+        cout << "Student with roll number " << rollNo << " not found.\n";
+    }
+}
